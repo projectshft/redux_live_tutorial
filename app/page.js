@@ -2,6 +2,8 @@
 import Link from 'next/link';
 import Cart from './components/cart';
 import { useCart } from './contexts/CartContext';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart } from './slices/cartSlice';
 
 const ITEMS = [
 	{ id: 4, name: 'Wine', price: 100 },
@@ -11,6 +13,11 @@ const ITEMS = [
 
 export default function Home() {
 	const { addToCart } = useCart();
+	const cart = useSelector((state) => state.cart);
+	const dispatch = useDispatch();
+
+	console.log(cart);
+
 	return (
 		<main className='flex min-h-screen flex-col items-center justify-center p-24 bg-gray-100'>
 			<div className='space-y-6'>
