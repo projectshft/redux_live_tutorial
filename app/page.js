@@ -1,7 +1,9 @@
 'use client';
 import Link from 'next/link';
 import Cart from './components/cart';
-import { useCart } from './contexts/CartContext';
+
+import { useSelector, useDispatch } from 'react-redux';
+import { addItem } from './slices/cartSlice';
 
 const ITEMS = [
 	{ id: 4, name: 'Wine', price: 100 },
@@ -10,7 +12,8 @@ const ITEMS = [
 ];
 
 export default function Home() {
-	const { addToCart } = useCart();
+	const yellAtRedux = useDispatch();
+
 	return (
 		<main className='flex min-h-screen flex-col items-center justify-center p-24 bg-gray-100'>
 			<div className='space-y-6'>
@@ -27,7 +30,9 @@ export default function Home() {
 									Price: ${product.price}
 								</p>
 								<button
-									onClick={() => addToCart(product)}
+									onClick={() =>
+										yellAtRedux(addItem(product))
+									}
 									className='mt-3 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600'
 								>
 									Add to Cart

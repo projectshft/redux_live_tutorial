@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import Cart from '../components/cart';
-import { useCart } from '../contexts/CartContext';
 
 const ITEMS = [
 	{ id: 1, name: 'Beer', price: 100 },
@@ -14,8 +13,6 @@ const ITEMS = [
 ];
 
 export default function ProductPage() {
-	const { addToCart } = useCart();
-
 	return (
 		<main className='flex min-h-screen flex-col items-center justify-center p-24 bg-gray-100'>
 			<div className='space-y-6'>

@@ -1,7 +1,7 @@
-import { useCart } from '../contexts/CartContext';
+import { useSelector } from 'react-redux';
 
 export default function Cart() {
-	const { cart = [] } = useCart();
+	const cart = useSelector((state) => state.cart.shoppingCart);
 	const total = cart.reduce((acc, item) => acc + item.price, 0);
 
 	return (
