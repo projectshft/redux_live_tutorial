@@ -1,19 +1,28 @@
 import { useCart } from '../contexts/CartContext';
 
 export default function Cart() {
-	const { cart = [], addToCart } = useCart();
+	const { cart = [] } = useCart();
 	const total = cart.reduce((acc, item) => acc + item.price, 0);
+
 	return (
-		<div>
-			<h1>Cart</h1>
+		<div className='absolute top-0 right-0 mt-4 mr-4 bg-white border border-gray-200 shadow-lg p-4 rounded-lg w-64'>
+			<h1 className='text-lg text-gray-900 font-bold border-b border-gray-200 mb-2'>
+				Cart
+			</h1>
 			<ul>
 				{cart.map((item) => (
-					<li onClick={() => addToCart(item)} key={item.id}>
-						{item.name}
+					<li
+						key={item.id}
+						className='flex justify-between items-center py-1'
+					>
+						<span className='text-gray-700'>{item.name}</span>
+						<span className='text-gray-700'>${item.price}</span>
 					</li>
 				))}
-				<p>Total: {total}</p>
 			</ul>
+			<p className='text-right text-gray-900 font-semibold'>
+				Total: ${total}
+			</p>
 		</div>
 	);
 }
