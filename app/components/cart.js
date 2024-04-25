@@ -15,8 +15,8 @@ export default function Cart() {
 						key={item.id}
 						className='flex justify-between items-center py-1'
 					>
-						<span className='text-gray-700'>{item.name}</span>
-						<span className='text-gray-700'>${item.price}</span>
+						<span className='text-gray-900'>{item.name}</span>
+						<span className='text-gray-900'>${item.price}</span>
 					</li>
 				))}
 			</ul>

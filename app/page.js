@@ -6,9 +6,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from './slices/cartSlice';
 
 const ITEMS = [
-	{ id: 4, name: 'Wine', price: 100 },
-	{ id: 5, name: 'Truffles', price: 200 },
-	{ id: 6, name: 'Gold Bar', price: 9200 },
+	{ id: 4, title: 'Wine', price: 100 },
+	{ id: 5, title: 'Truffles', price: 200 },
+	{ id: 6, title: 'Gold Bar', price: 9200 },
 ];
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
 					{ITEMS.map((product) => (
 						<li key={product.id} className='card'>
 							<div className='bg-white p-4 shadow-lg rounded-lg hover:bg-gray-50'>
-								<h2 className='text-xl font-semibold'>
+								<h2 className='text-xl text-gray-900 font-semibold'>
 									{product.name}
 								</h2>
 								<p className='text-gray-700'>
